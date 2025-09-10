@@ -2,13 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
     const { userLogin } = useAuth()
     const captchaRef = useRef(null)
-    const [disableLogin, setDisableLogin] = useState(false)
+    const [disableLogin, setDisableLogin] = useState(true)
     const navigate = useNavigate()
     const location = useLocation()
     // const from = location.state?.from?.pathname || "/";
@@ -78,6 +78,7 @@ const Login = () => {
                             <input disabled={disableLogin} type="submit" className="btn btn-neutral mt-4" value="Login" />
                         </fieldset>
                     </form>
+                    <p className='text-center'>New here? <Link to="/signup" className='text-rose-600'>Register</Link></p>
                 </div>
             </div>
         </div>

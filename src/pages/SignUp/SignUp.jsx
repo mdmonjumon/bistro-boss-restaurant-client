@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import SocialLogin from "../../components/Shared/SocialLogin/SocialLogin";
@@ -28,7 +28,7 @@ const SignUp = () => {
                         axiosSecurePublic.post('users', userInfo)
                             .then(res => {
                                 if (res.data.insertedId) {
-                                    
+
                                     reset();
                                     Swal.fire({
                                         position: "top-end",
@@ -101,6 +101,7 @@ const SignUp = () => {
                             <input type="submit" className="btn btn-neutral mt-4" value="SignUp" />
                         </fieldset>
                     </form>
+                    <p className="text-center">Already have an account? <Link to="/login" className="text-rose-600">Login</Link></p>
                     <div className="lg:w-3/4 mx-auto px-6">
                         <SocialLogin></SocialLogin>
                     </div>
