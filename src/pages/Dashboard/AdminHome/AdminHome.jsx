@@ -84,7 +84,7 @@ const AdminHome = () => {
                             <FaDollarSign className="text-3xl"></FaDollarSign>
                         </div>
                         <div className="stat-title text-2xl">Revenue</div>
-                        <div className="stat-value">{stats?.sumOfRevenue}</div>
+                        <div className="stat-value">{stats?.sumOfRevenue?.toFixed(2)}</div>
                     </div>
 
                     {/* users */}
